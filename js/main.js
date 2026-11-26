@@ -239,7 +239,7 @@
         const b = document.createElement("button");
         b.type = "button";
         b.setAttribute("role", "tab");
-        b.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
+        b.setAttribute("aria-label", `Aller au témoignage ${i + 1}`);
         b.addEventListener("click", () => { go(i); restart(); });
         dotsWrap.appendChild(b);
       }
@@ -348,24 +348,24 @@
         }
       });
       if (firstBad) {
-        status.textContent = "Please fill in all fields with a valid email.";
+        status.textContent = "Merci de remplir tous les champs avec un email valide.";
         firstBad.focus();
         return;
       }
       status.textContent = "";
       btn.classList.add("is-sending");
-      label.textContent = "Sending…";
+      label.textContent = "Envoi en cours…";
 
       // No backend here: simulate the request. Plug your service (Formspree, EmailJS, API…) in place of this timeout.
       setTimeout(() => {
         btn.classList.remove("is-sending");
         btn.classList.add("is-sent");
-        label.textContent = "Message Sent!";
+        label.textContent = "Message envoyé !";
         form.reset();
         showToast();
         setTimeout(() => {
           btn.classList.remove("is-sent");
-          label.textContent = "Send Message";
+          label.textContent = "Envoyer le message";
         }, 3200);
       }, 1300);
     });
